@@ -18,6 +18,7 @@
             --orange-gradient: linear-gradient(135deg, #FF9F0A, #FF3B30);
             --green: #34C759;
             --blue: #007AFF;
+            --dark-badge: #1C1C1E;
         }
 
         body { 
@@ -115,7 +116,7 @@
 
         /* LISTAS E CONTEÚDO */
         .list-item {
-            padding: 12px 0;
+            padding: 15px 0;
             border-bottom: 1px solid var(--separator);
             display: flex;
             align-items: center;
@@ -126,12 +127,17 @@
             background: #F2F2F7;
             color: var(--orange);
             font-weight: 800;
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 8px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             margin-right: 15px;
-            min-width: 50px;
+            min-width: 60px;
             text-align: center;
+        }
+
+        .week-badge {
+            background: var(--dark-badge);
+            color: #fff;
         }
 
         /* GRID DE PROPOSTA */
@@ -247,19 +253,28 @@
     <div class="grid-2">
         <div class="ios-card">
             <div class="card-title">🎥 Proposta Editorial (10 Reels)</div>
-            <div style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Foco em gerar desejo nos dias de pico.</div>
+            <div style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Distribuição estratégica nos dias de pico.</div>
             
             <div class="list-item">
-                <div class="badge">SEG</div>
-                <div><strong>Ressaca/Resumo:</strong> Prova social do fim de semana.</div>
+                <div class="badge week-badge">SEMANA 01</div>
+                <div>
+                    <strong>4 Vídeos</strong><br>
+                    <span style="font-size: 0.8rem; color: #666;">Foco: Verão, Forró e FoodPorn.</span>
+                </div>
             </div>
             <div class="list-item">
-                <div class="badge">QUA</div>
-                <div><strong>Food Porn:</strong> Cerveja trincando e petiscos.</div>
+                <div class="badge week-badge">SEMANA 02</div>
+                <div>
+                    <strong>4 Vídeos</strong><br>
+                    <span style="font-size: 0.8rem; color: #666;">Foco: Natal, Vizinho e Salva-Vidas.</span>
+                </div>
             </div>
             <div class="list-item">
-                <div class="badge">SEX</div>
-                <div><strong>Hype:</strong> Agenda de bandas e convite.</div>
+                <div class="badge week-badge">SEMANA 03</div>
+                <div>
+                    <strong>2 Vídeos</strong><br>
+                    <span style="font-size: 0.8rem; color: #666;">Foco: Retrospectiva e Virada.</span>
+                </div>
             </div>
         </div>
 
