@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operação Verão | 3,2,1 Vai</title>
+    <style>
+        :root {
+            --bg: #121214;
+            --card-bg: #202024;
+            --primary: #F59E0B; /* Amarelo Cerveja */
+            --text: #E1E1E6;
+            --text-muted: #A8A8B3;
+            --highlight: #04D361; /* Verde Dinheiro/Ação */
+        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        /* Header */
+        header { text-align: center; margin-bottom: 40px; padding: 40px 0; border-bottom: 1px solid #333; }
+        h1 { color: var(--primary); text-transform: uppercase; font-size: 2rem; margin-bottom: 10px; letter-spacing: 2px; }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* Calendar Grid */
+        .calendar-section { margin-bottom: 50px; }
+        .calendar-header { text-align: center; margin-bottom: 20px; font-weight: bold; font-size: 1.5rem; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center; }
+        .day-name { color: var(--text-muted); font-size: 0.9rem; padding: 10px; }
+        .day { background: var(--card-bg); padding: 15px; border-radius: 8px; position: relative; min-height: 80px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #333; }
+        .day-number { font-weight: bold; align-self: flex-start; }
+        .day-event { font-size: 0.7rem; color: var(--bg); background-color: var(--primary); padding: 2px 5px; border-radius: 4px; margin-top: 5px; font-weight: bold; }
+        .day.faded { opacity: 0.3; } /* Dias passados ou próximo mês */
+        .day.highlight { border: 1px solid var(--primary); box-shadow: 0 0 10px rgba(245, 158, 11, 0.1); }
+
+        /* Editorial & Workflow */
+        .proposal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+        .info-card { background: var(--card-bg); padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary); }
+        .info-card h3 { color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        /* List */
+        .action-list { list-style: none; padding: 0; }
+        .action-list li { margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .date-badge { background: #333; color: var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-right: 10px; }
+
+        /* Pricing */
+        .price-section { background: linear-gradient(135deg, #202024 0%, #1a1a1e 100%); padding: 40px; border-radius: 16px; text-align: center; border: 1px solid var(--primary); margin-top: 50px; }
+        .price-big { font-size: 3.5rem; font-weight: bold; color: var(--highlight); margin: 10px 0; }
+        .price-daily { color: var(--text-muted); font-size: 1.2rem; }
+        .cta-button { display: inline-block; background-color: var(--highlight); color: #000; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 20px; font-size: 1.2rem; transition: transform 0.2s; }
+        .cta-button:hover { transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .calendar-grid { font-size: 0.8rem; }
+            .day { min-height: 60px; padding: 5px; }
+            .proposal-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>☀️ Operação Verão: Reta Final 2025</h1>
+        <p class="subtitle">Planejamento Estratégico & Visual | 3,2,1 Vai Depósito</p>
+    </header>
+
+    <div class="calendar-section">
+        <div class="calendar-header">DEZEMBRO 2025</div>
+        <div class="calendar-grid">
+            <div class="day-name">Dom</div> <div class="day-name">Seg</div> <div class="day-name">Ter</div> <div class="day-name">Qua</div> <div class="day-name">Qui</div> <div class="day-name">Sex</div> <div class="day-name">Sáb</div>
+
+            <div class="day faded"><span class="day-number">30</span></div> <div class="day"><span class="day-number">1</span></div>
+            <div class="day"><span class="day-number">2</span></div>
+            <div class="day"><span class="day-number">3</span></div>
+            <div class="day"><span class="day-number">4</span></div>
+            <div class="day"><span class="day-number">5</span></div>
+            <div class="day"><span class="day-number">6</span></div>
+
+            <div class="day"><span class="day-number">7</span></div>
+            <div class="day"><span class="day-number">8</span></div>
+            <div class="day"><span class="day-number">9</span></div>
+            <div class="day"><span class="day-number">10</span></div>
+            <div class="day"><span class="day-number">11</span></div>
+            <div class="day"><span class="day-number">12</span></div>
+            <div class="day highlight"><span class="day-number">13</span><div class="day-event">Forró 🪗</div></div>
+
+            <div class="day"><span class="day-number">14</span></div>
+            <div class="day highlight" style="border-color: #04D361;"><span class="day-number">15</span><div class="day-event" style="background:#04D361">INÍCIO</div></div>
+            <div class="day"><span class="day-number">16</span></div>
+            <div class="day"><span class="day-number">17</span></div>
+            <div class="day"><span class="day-number">18</span></div>
+            <div class="day"><span class="day-number">19</span></div>
+            <div class="day"><span class="day-number">20</span></div>
+
+            <div class="day highlight"><span class="day-number">21</span><div class="day-event">Verão ☀️</div></div>
+            <div class="day"><span class="day-number">22</span></div>
+            <div class="day highlight"><span class="day-number">23</span><div class="day-event">Vizinho 🏠</div></div>
+            <div class="day highlight"><span class="day-number">24</span><div class="day-event">Véspera 🎄</div></div>
+            <div class="day highlight"><span class="day-number">25</span><div class="day-event">Natal 🎅</div></div>
+            <div class="day"><span class="day-number">26</span></div>
+            <div class="day"><span class="day-number">27</span></div>
+
+            <div class="day highlight"><span class="day-number">28</span><div class="day-event">Salva-Vidas</div></div>
+            <div class="day"><span class="day-number">29</span></div>
+            <div class="day"><span class="day-number">30</span></div>
+            <div class="day highlight"><span class="day-number">31</span><div class="day-event">Réveillon 🥂</div></div>
+            <div class="day faded"><span class="day-number">1</span></div> <div class="day faded"><span class="day-number">2</span></div>
+            <div class="day faded"><span class="day-number">3</span></div>
+        </div>
+    </div>
+
+    <div class="proposal-grid">
+        <div class="info-card">
+            <h3>🎥 PROPOSTA EDITORIAL</h3>
+            <p><strong>REELS (Tração):</strong> Foco em vídeos curtos e dinâmicos para gerar desejo.</p>
+            <ul>
+                <li><strong>Segunda:</strong> "Ressaca/Resumo" (Prova Social).</li>
+                <li><strong>Qua/Qui:</strong> "Food Porn" (Cerveja/Petisco).</li>
+                <li><strong>Sex/Sáb:</strong> "Hype" (Agenda e Convite).</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h3>🔄 FUNCIONAMENTO</h3>
+            <p><strong>Captação Simplificada:</strong></p>
+            <p>1. Nos eventos (Sáb/Dom), você grava vídeos curtos no celular.</p>
+            <p>2. Joga no nosso <strong>Grupo de Mídias</strong> (sem editar).</p>
+            <p>3. Nossa equipe edita e deixa pronto para postar na semana.</p>
+        </div>
+    </div>
+
+    <div class="info-card" style="margin-bottom: 40px;">
+        <h3>🗓️ CALENDÁRIO DE AÇÕES (Cards + Estratégia)</h3>
+        <ul class="action-list">
+            <li><span class="date-badge">13/12</span> <strong>Dia do Forró:</strong> Playlist especial e convite para arrastar a chinela.</li>
+            <li><span class="date-badge">21/12</span> <strong>Início do Verão:</strong> Promoção de Balde. "O Verão Chegou, hidrate-se".</li>
+            <li><span class="date-badge">23/12</span> <strong>Dia do Vizinho:</strong> Movimento de Bairro. Incentivo à resenha na calçada.</li>
+            <li><span class="date-badge">24/12</span> <strong>Véspera (Survival Kit):</strong> Delivery de Gelo e Cerveja até 20h.</li>
+            <li><span class="date-badge">25/12</span> <strong>Natal (Refúgio):</strong> Abertura fim de tarde. "Fuga da tia chata".</li>
+            <li><span class="date-badge">28/12</span> <strong>Dia do Salva-Vidas:</strong> "O mar tá perigoso, venha se salvar da sede".</li>
+            <li><span class="date-badge">31/12</span> <strong>Réveillon:</strong> Venda de Kits de Virada (Ticket Médio Alto).</li>
+        </ul>
+    </div>
+
+    <div class="price-section">
+        <h3>INVESTIMENTO SPRINT (15 a 31/12)</h3>
+        <p>Equipe Completa: Edição de Vídeo + Design + Estratégia</p>
+        <div class="price-big">R$ 997,00</div>
+        <div class="price-daily">Isso equivale a apenas <strong>R$ 58,00 por dia</strong>.</div>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">Pagamento: 50% Entrada (Pix) / 50% Final (31/12)</p>
+        <a href="#" class="cta-button">FECHAR OPERAÇÃO VERÃO 🚀</a>
+    </div>
+
+</div>
+
+</body>
+</html>
