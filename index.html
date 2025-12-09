@@ -11,7 +11,7 @@
             --primary: #F59E0B; /* Amarelo Cerveja */
             --text: #E1E1E6;
             --text-muted: #A8A8B3;
-            --highlight: #04D361; /* Verde Dinheiro/Ação */
+            --highlight: #04D361; /* Verde Dinheiro */
         }
         body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
         .container { max-width: 900px; margin: 0 auto; }
@@ -29,10 +29,10 @@
         .day { background: var(--card-bg); padding: 15px; border-radius: 8px; position: relative; min-height: 80px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #333; }
         .day-number { font-weight: bold; align-self: flex-start; }
         .day-event { font-size: 0.7rem; color: var(--bg); background-color: var(--primary); padding: 2px 5px; border-radius: 4px; margin-top: 5px; font-weight: bold; }
-        .day.faded { opacity: 0.3; } /* Dias passados ou próximo mês */
+        .day.faded { opacity: 0.3; }
         .day.highlight { border: 1px solid var(--primary); box-shadow: 0 0 10px rgba(245, 158, 11, 0.1); }
 
-        /* Editorial & Workflow */
+        /* Proposal & Workflow */
         .proposal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
         .info-card { background: var(--card-bg); padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary); }
         .info-card h3 { color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
@@ -42,12 +42,16 @@
         .action-list li { margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
         .date-badge { background: #333; color: var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-right: 10px; }
 
-        /* Pricing */
+        /* Pricing & Future */
         .price-section { background: linear-gradient(135deg, #202024 0%, #1a1a1e 100%); padding: 40px; border-radius: 16px; text-align: center; border: 1px solid var(--primary); margin-top: 50px; }
         .price-big { font-size: 3.5rem; font-weight: bold; color: var(--highlight); margin: 10px 0; }
         .price-daily { color: var(--text-muted); font-size: 1.2rem; }
-        .cta-button { display: inline-block; background-color: var(--highlight); color: #000; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 20px; font-size: 1.2rem; transition: transform 0.2s; }
+        
+        /* Button */
+        .cta-button { display: inline-block; background-color: var(--highlight); color: #000; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 30px; font-size: 1.2rem; transition: transform 0.2s; }
         .cta-button:hover { transform: scale(1.05); }
+
+        .traffic-note { margin-top: 30px; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid #333; padding-top: 20px; }
 
         @media (max-width: 768px) {
             .calendar-grid { font-size: 0.8rem; }
@@ -69,7 +73,8 @@
         <div class="calendar-grid">
             <div class="day-name">Dom</div> <div class="day-name">Seg</div> <div class="day-name">Ter</div> <div class="day-name">Qua</div> <div class="day-name">Qui</div> <div class="day-name">Sex</div> <div class="day-name">Sáb</div>
 
-            <div class="day faded"><span class="day-number">30</span></div> <div class="day"><span class="day-number">1</span></div>
+            <div class="day faded"><span class="day-number">30</span></div>
+            <div class="day"><span class="day-number">1</span></div>
             <div class="day"><span class="day-number">2</span></div>
             <div class="day"><span class="day-number">3</span></div>
             <div class="day"><span class="day-number">4</span></div>
@@ -104,7 +109,8 @@
             <div class="day"><span class="day-number">29</span></div>
             <div class="day"><span class="day-number">30</span></div>
             <div class="day highlight"><span class="day-number">31</span><div class="day-event">Réveillon 🥂</div></div>
-            <div class="day faded"><span class="day-number">1</span></div> <div class="day faded"><span class="day-number">2</span></div>
+            <div class="day faded"><span class="day-number">1</span></div>
+            <div class="day faded"><span class="day-number">2</span></div>
             <div class="day faded"><span class="day-number">3</span></div>
         </div>
     </div>
@@ -112,7 +118,7 @@
     <div class="proposal-grid">
         <div class="info-card">
             <h3>🎥 PROPOSTA EDITORIAL</h3>
-            <p><strong>REELS (Tração):</strong> Foco em vídeos curtos e dinâmicos para gerar desejo.</p>
+            <p><strong>REELS (Tração Orgânica):</strong> Foco em vídeos curtos e dinâmicos para gerar desejo.</p>
             <ul>
                 <li><strong>Segunda:</strong> "Ressaca/Resumo" (Prova Social).</li>
                 <li><strong>Qua/Qui:</strong> "Food Porn" (Cerveja/Petisco).</li>
@@ -134,10 +140,10 @@
             <li><span class="date-badge">13/12</span> <strong>Dia do Forró:</strong> Playlist especial e convite para arrastar a chinela.</li>
             <li><span class="date-badge">21/12</span> <strong>Início do Verão:</strong> Promoção de Balde. "O Verão Chegou, hidrate-se".</li>
             <li><span class="date-badge">23/12</span> <strong>Dia do Vizinho:</strong> Movimento de Bairro. Incentivo à resenha na calçada.</li>
-            <li><span class="date-badge">24/12</span> <strong>Véspera (Survival Kit):</strong> Delivery de Gelo e Cerveja até 20h.</li>
+            <li><span class="date-badge">24/12</span> <strong>Véspera (Survival Kit):</strong> Foco total em Gelo, Carvão e Cerveja de última hora. "Esqueceu o gelo? Pede aqui."</li>
             <li><span class="date-badge">25/12</span> <strong>Natal (Refúgio):</strong> Abertura fim de tarde. "Fuga da tia chata".</li>
             <li><span class="date-badge">28/12</span> <strong>Dia do Salva-Vidas:</strong> "O mar tá perigoso, venha se salvar da sede".</li>
-            <li><span class="date-badge">31/12</span> <strong>Réveillon:</strong> Venda de Kits de Virada (Ticket Médio Alto).</li>
+            <li><span class="date-badge">31/12</span> <strong>Réveillon:</strong> Venda de Kits de Virada (Vodka/Gin + Energético + Gelo).</li>
         </ul>
     </div>
 
@@ -146,8 +152,18 @@
         <p>Equipe Completa: Edição de Vídeo + Design + Estratégia</p>
         <div class="price-big">R$ 997,00</div>
         <div class="price-daily">Isso equivale a apenas <strong>R$ 58,00 por dia</strong>.</div>
-        <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">Pagamento: 50% Entrada (Pix) / 50% Final (31/12)</p>
-        <a href="#" class="cta-button">FECHAR OPERAÇÃO VERÃO 🚀</a>
+        
+        <p style="margin-top: 20px; font-weight: bold; color: #fff;">Forma de Pagamento:</p>
+        <p style="color: #ccc;">50% Entrada (Pix para Startar) + 50% Final (Dia 30/12)</p>
+
+        <a href="https://wa.me/557183934660?text=Ol%C3%A1%2C%20vamos%20fechar%20a%20Opera%C3%A7%C3%A3o%20Ver%C3%A3o%21" class="cta-button" target="_blank">
+            FECHAR OPERAÇÃO VERÃO 🚀
+        </a>
+
+        <div class="traffic-note">
+            <strong>🚀 Próximos Passos (2026):</strong><br>
+            Assim que as redes estiverem cheias de conteúdo, em Janeiro/Fevereiro, recomendamos iniciar o <strong>Tráfego Pago</strong> (Anúncios) para escalar o alcance.
+        </div>
     </div>
 
 </div>
