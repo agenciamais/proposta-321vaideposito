@@ -6,77 +6,202 @@
     <title>Operação Verão | 3,2,1 Vai</title>
     <style>
         :root {
-            --bg: #121214;
-            --card-bg: #202024;
-            --primary: #F59E0B; /* Amarelo Cerveja/Verão */
+            --bg: #0f0f10;
+            --card-bg: #1c1c1f;
+            /* DEGRADÊ VERÃO (Sunset) */
+            --summer-gradient: linear-gradient(135deg, #F59E0B 0%, #FF512F 100%);
             --text: #E1E1E6;
             --text-muted: #A8A8B3;
-            --highlight: #04D361; /* Verde Ação/Dinheiro */
-            --danger: #ff4444;
+            --highlight: #04D361; /* Verde Ação */
         }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
+        
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--bg); 
+            /* Toque sutil de luz no topo */
+            background-image: radial-gradient(circle at 50% -20%, rgba(245, 158, 11, 0.15), transparent 70%);
+            color: var(--text); 
+            margin: 0; 
+            padding: 20px; 
+            line-height: 1.6; 
+        }
+        
         .container { max-width: 900px; margin: 0 auto; }
         
         /* Header */
-        header { text-align: center; margin-bottom: 40px; padding: 40px 0; border-bottom: 1px solid #333; }
-        h1 { color: var(--primary); text-transform: uppercase; font-size: 2rem; margin-bottom: 10px; letter-spacing: 2px; line-height: 1.2; }
-        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+        header { text-align: center; margin-bottom: 50px; padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        
+        h1 { 
+            /* Texto com Degradê */
+            background: var(--summer-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase; 
+            font-size: 2.5rem; 
+            margin-bottom: 10px; 
+            letter-spacing: 2px; 
+            line-height: 1.2; 
+            font-weight: 900;
+        }
+        
+        .subtitle { color: var(--text-muted); font-size: 1.2rem; }
 
         /* Calendar Grid */
-        .calendar-section { margin-bottom: 50px; }
-        .calendar-header { text-align: center; margin-bottom: 20px; font-weight: bold; font-size: 1.5rem; color: #fff; }
-        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; }
-        .day-name { color: var(--text-muted); font-size: 0.9rem; padding: 10px 0; text-transform: uppercase; font-size: 0.8rem; }
-        .day { background: var(--card-bg); padding: 10px; border-radius: 8px; position: relative; min-height: 80px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #333; }
+        .calendar-section { margin-bottom: 60px; }
+        .calendar-header { text-align: center; margin-bottom: 25px; font-weight: bold; font-size: 1.5rem; color: #fff; letter-spacing: 1px; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center; }
+        
+        .day-name { color: var(--text-muted); padding: 10px 0; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; }
+        
+        .day { 
+            background: var(--card-bg); 
+            padding: 10px; 
+            border-radius: 12px; 
+            position: relative; 
+            min-height: 85px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            transition: transform 0.2s;
+        }
+        
+        .day:hover { transform: translateY(-2px); border-color: rgba(245, 158, 11, 0.3); }
+
         .day-number { font-weight: bold; align-self: flex-start; font-size: 1.1rem; }
-        .day-event { font-size: 0.65rem; color: #000; background-color: var(--primary); padding: 3px 6px; border-radius: 4px; margin-top: 5px; font-weight: 800; text-transform: uppercase; line-height: 1.2; }
-        .day.faded { opacity: 0.3; background: #1a1a1e; }
-        .day.highlight { border: 1px solid var(--primary); box-shadow: 0 0 15px rgba(245, 158, 11, 0.15); }
+        
+        .day-event { 
+            font-size: 0.65rem; 
+            color: #fff; 
+            background: var(--summer-gradient); 
+            padding: 4px 6px; 
+            border-radius: 4px; 
+            margin-top: 5px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            line-height: 1.2; 
+            box-shadow: 0 2px 5px rgba(245, 158, 11, 0.3);
+        }
+        
+        .day.faded { opacity: 0.3; background: #161618; }
+        
+        .day.highlight { border: 1px solid #F59E0B; box-shadow: 0 0 15px rgba(245, 158, 11, 0.1); }
         .day.start { border: 1px solid var(--highlight); box-shadow: 0 0 15px rgba(4, 211, 97, 0.15); }
 
         /* Proposal & Workflow Grid */
-        .proposal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-        .info-card { background: var(--card-bg); padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
-        .info-card h3 { color: var(--primary); margin-top: 0; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; }
+        .proposal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 50px; }
         
-        /* Lists inside cards */
+        .info-card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 16px; 
+            /* Borda sutil à esquerda com degradê */
+            border-left: 5px solid;
+            border-image: var(--summer-gradient);
+            border-image-slice: 1;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+        }
+        
+        .info-card h3 { 
+            background: var(--summer-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 0; 
+            margin-bottom: 20px; 
+            font-size: 1.3rem; 
+        }
+        
         .info-card ul { padding-left: 20px; }
-        .info-card li { margin-bottom: 10px; color: var(--text-muted); font-size: 0.95rem; }
+        .info-card li { margin-bottom: 12px; color: var(--text-muted); font-size: 0.95rem; }
         .info-card strong { color: var(--text); }
-        .week-badge { background: #333; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 5px; }
+        .week-badge { background: #333; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 8px; font-weight: bold; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* Action List (Timeline) */
+        /* Action List */
         .action-list { list-style: none; padding: 0; }
-        .action-list li { margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .action-list li { margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
         .action-list li:last-child { border-bottom: none; }
-        .date-badge { background: #333; color: var(--primary); padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; margin-right: 12px; display: inline-block; }
+        .date-badge { background: linear-gradient(135deg, #333, #444); color: #F59E0B; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; margin-right: 12px; display: inline-block; border: 1px solid rgba(245, 158, 11, 0.2); }
 
         /* Price Section */
-        .price-section { background: linear-gradient(135deg, #202024 0%, #151518 100%); padding: 50px 30px; border-radius: 16px; text-align: center; border: 1px solid var(--primary); margin-top: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .price-title { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
-        .price-big { font-size: 4rem; font-weight: 800; color: var(--highlight); margin: 0; line-height: 1; }
-        .price-daily { color: var(--text-muted); font-size: 1.1rem; margin-top: 10px; }
-        .price-details { margin-top: 30px; padding-top: 20px; border-top: 1px solid #333; font-size: 0.95rem; color: #ccc; }
+        .price-section { 
+            background: linear-gradient(160deg, #202024 0%, #121214 100%); 
+            padding: 60px 30px; 
+            border-radius: 20px; 
+            text-align: center; 
+            border: 1px solid rgba(245, 158, 11, 0.2); 
+            margin-top: 80px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4); 
+            position: relative;
+            overflow: hidden;
+        }
 
-        /* Scopes */
-        .scope-note { font-size: 0.8rem; color: #666; margin-top: 20px; text-align: left; padding: 15px; background: #1a1a1e; border-radius: 8px; }
+        /* Efeito de brilho no fundo do preço */
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .price-content { position: relative; z-index: 1; }
+
+        .price-title { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 10px; }
+        
+        .price-big { 
+            font-size: 4.5rem; 
+            font-weight: 900; 
+            color: #fff;
+            margin: 10px 0; 
+            line-height: 1; 
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        
+        .price-daily { color: var(--text-muted); font-size: 1.2rem; margin-top: 10px; }
+        .price-details { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 1rem; color: #ccc; }
+
+        .scope-note { font-size: 0.85rem; color: #888; margin-top: 30px; text-align: left; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
 
         /* Button */
-        .cta-button { display: inline-block; background-color: var(--highlight); color: #000; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 900; margin-top: 30px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; box-shadow: 0 5px 15px rgba(4, 211, 97, 0.3); }
-        .cta-button:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(4, 211, 97, 0.5); }
+        .cta-button { 
+            display: inline-block; 
+            background: var(--summer-gradient); 
+            color: #fff; 
+            padding: 20px 50px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 900; 
+            margin-top: 40px; 
+            font-size: 1.2rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3); 
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .cta-button:hover { 
+            transform: translateY(-3px) scale(1.02); 
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.5); 
+        }
 
-        .traffic-note { margin-top: 40px; font-size: 0.9rem; color: #666; font-style: italic; }
+        .traffic-note { margin-top: 50px; font-size: 0.9rem; color: #666; font-style: italic; }
 
         /* Responsividade */
         @media (max-width: 768px) {
-            .calendar-grid { font-size: 0.75rem; gap: 4px; }
-            .day { min-height: 50px; padding: 5px; }
+            .calendar-grid { font-size: 0.75rem; gap: 5px; }
+            .day { min-height: 60px; padding: 5px; }
             .day-number { font-size: 0.9rem; }
             .day-event { font-size: 0.55rem; padding: 2px 4px; }
             .proposal-grid { grid-template-columns: 1fr; }
-            .price-big { font-size: 3rem; }
+            .price-big { font-size: 3.5rem; }
             .container { padding: 15px; }
-            h1 { font-size: 1.6rem; }
+            h1 { font-size: 1.8rem; }
+            .cta-button { padding: 15px 30px; font-size: 1rem; width: 80%; }
         }
     </style>
 </head>
@@ -140,17 +265,17 @@
             <h3>🎥 PROPOSTA EDITORIAL (10 Reels)</h3>
             <p><strong>REELS:</strong> Distribuição inteligente nos dias de pico para gerar desejo e movimento.</p>
             <ul>
-                <li style="border-bottom: 1px solid #333; padding-bottom: 5px;">
+                <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
                     <span class="week-badge">SEMANA 01</span> <strong>4 Vídeos</strong><br>
-                    <span style="font-size: 0.85rem;">Foco: Início do Verão, Forró e FoodPorn.</span>
+                    <span style="font-size: 0.85rem; color: #888;">Foco: Início do Verão, Forró e FoodPorn.</span>
                 </li>
-                <li style="border-bottom: 1px solid #333; padding-bottom: 5px;">
+                <li style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
                     <span class="week-badge">SEMANA 02</span> <strong>4 Vídeos</strong><br>
-                    <span style="font-size: 0.85rem;">Foco: Especial Natal, Vizinho e Salva-Vidas.</span>
+                    <span style="font-size: 0.85rem; color: #888;">Foco: Especial Natal, Vizinho e Salva-Vidas.</span>
                 </li>
                 <li>
                     <span class="week-badge">SEMANA 03</span> <strong>2 Vídeos</strong><br>
-                    <span style="font-size: 0.85rem;">Foco: Retrospectiva e Venda Réveillon.</span>
+                    <span style="font-size: 0.85rem; color: #888;">Foco: Retrospectiva e Venda Réveillon.</span>
                 </li>
             </ul>
         </div>
@@ -182,29 +307,31 @@
     </div>
 
     <div class="price-section">
-        <p class="price-title">INVESTIMENTO SPRINT (15 a 31/12)</p>
-        <p style="margin-top: 0;">Equipe Completa: Edição de Vídeo + Design + Estratégia</p>
-        
-        <div class="price-big">R$ 997,00</div>
-        
-        <div class="price-daily">Isso equivale a apenas <strong>R$ 58,00 por dia</strong>.</div>
-        
-        <div class="price-details">
-            <p><strong>Forma de Pagamento:</strong></p>
-            <p>50% Entrada (Pix para Startar) + 50% Final (Dia 30/12)</p>
-        </div>
+        <div class="price-content">
+            <p class="price-title">INVESTIMENTO SPRINT (15 a 31/12)</p>
+            <p style="margin-top: 0;">Equipe Completa: Edição de Vídeo + Design + Estratégia</p>
+            
+            <div class="price-big">R$ 997,00</div>
+            
+            <div class="price-daily">Isso equivale a apenas <strong>R$ 58,00 por dia</strong>.</div>
+            
+            <div class="price-details">
+                <p><strong>Forma de Pagamento:</strong></p>
+                <p>50% Entrada (Pix para Startar) + 50% Final (Dia 30/12)</p>
+            </div>
 
-        <div class="scope-note">
-            ⚠️ <strong>Escopo Técnico (O que não está incluso):</strong><br>
-            O foco desta operação é Branding e Movimento. Não inclui cards de varejo (atualização de preços de cardápio/estoque) e SAC (respostas de direct/comentários).
-        </div>
+            <div class="scope-note">
+                ⚠️ <strong>Escopo Técnico (O que não está incluso):</strong><br>
+                O foco desta operação é Branding e Movimento. Não inclui cards de varejo (atualização de preços de cardápio/estoque) e SAC (respostas de direct/comentários).
+            </div>
 
-        <a href="https://wa.me/557183934660?text=Ol%C3%A1%2C%20vamos%20fechar%20a%20Opera%C3%A7%C3%A3o%20Ver%C3%A3o%21" class="cta-button" target="_blank">
-            FECHAR OPERAÇÃO VERÃO 🚀
-        </a>
+            <a href="https://wa.me/557183934660?text=Ol%C3%A1%2C%20vamos%20fechar%20a%20Opera%C3%A7%C3%A3o%20Ver%C3%A3o%21" class="cta-button" target="_blank">
+                FECHAR OPERAÇÃO VERÃO 🚀
+            </a>
 
-        <div class="traffic-note">
-            🚀 <strong>Próximos Passos (2026):</strong> Assim que as redes estiverem cheias de conteúdo, em Janeiro/Fevereiro, iniciaremos o <strong>Tráfego Pago</strong> (Anúncios) para escalar o alcance.
+            <div class="traffic-note">
+                🚀 <strong>Próximos Passos (2026):</strong> Assim que as redes estiverem cheias de conteúdo, em Janeiro/Fevereiro, iniciaremos o <strong>Tráfego Pago</strong> (Anúncios) para escalar o alcance.
+            </div>
         </div>
     </div>
 
