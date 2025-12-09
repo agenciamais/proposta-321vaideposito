@@ -41,8 +41,9 @@
         
         /* Lists inside cards */
         .info-card ul { padding-left: 20px; }
-        .info-card li { margin-bottom: 10px; color: var(--text-muted); }
+        .info-card li { margin-bottom: 10px; color: var(--text-muted); font-size: 0.95rem; }
         .info-card strong { color: var(--text); }
+        .week-badge { background: #333; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 5px; }
 
         /* Action List (Timeline) */
         .action-list { list-style: none; padding: 0; }
@@ -136,13 +137,21 @@
 
     <div class="proposal-grid">
         <div class="info-card">
-            <h3>🎥 PROPOSTA EDITORIAL</h3>
-            <p><strong>REELS (Tração Orgânica):</strong> Foco em vídeos curtos nos dias de pico para gerar desejo.</p>
+            <h3>🎥 PROPOSTA EDITORIAL (10 Reels)</h3>
+            <p><strong>REELS:</strong> Distribuição inteligente nos dias de pico para gerar desejo e movimento.</p>
             <ul>
-                <li style="color: var(--text);"><strong>Volume Total:</strong> 10 Vídeos no período (distribuídos estrategicamente).</li>
-                <li><strong>Segunda:</strong> "Ressaca/Resumo do FDS" (Prova Social).</li>
-                <li><strong>Meio da Semana:</strong> "Food Porn" (Cerveja/Petiscos).</li>
-                <li><strong>Fim de Semana:</strong> "Hype" (Agenda e Convite).</li>
+                <li style="border-bottom: 1px solid #333; padding-bottom: 5px;">
+                    <span class="week-badge">SEMANA 01</span> <strong>4 Vídeos</strong><br>
+                    <span style="font-size: 0.85rem;">Foco: Início do Verão, Forró e FoodPorn.</span>
+                </li>
+                <li style="border-bottom: 1px solid #333; padding-bottom: 5px;">
+                    <span class="week-badge">SEMANA 02</span> <strong>4 Vídeos</strong><br>
+                    <span style="font-size: 0.85rem;">Foco: Especial Natal, Vizinho e Salva-Vidas.</span>
+                </li>
+                <li>
+                    <span class="week-badge">SEMANA 03</span> <strong>2 Vídeos</strong><br>
+                    <span style="font-size: 0.85rem;">Foco: Retrospectiva e Venda Réveillon.</span>
+                </li>
             </ul>
         </div>
 
