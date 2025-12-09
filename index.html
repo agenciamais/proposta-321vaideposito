@@ -184,6 +184,11 @@
 
         .note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 30px; text-align: center; line-height: 1.4; }
 
+        /* LISTA DENTRO DO CARD (Bullet points) */
+        .bullet-list { padding-left: 20px; margin: 0; }
+        .bullet-list li { margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        .bullet-list strong { color: var(--text-primary); }
+
         @media (max-width: 768px) {
             .grid-2 { grid-template-columns: 1fr; }
             .calendar-grid { gap: 4px; }
@@ -253,7 +258,7 @@
     <div class="grid-2">
         <div class="ios-card">
             <div class="card-title">🎥 Proposta Editorial (10 Reels)</div>
-            <div style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Distribuição estratégica nos dias de pico.</div>
+            <div style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Foco em gerar desejo nos dias de pico.</div>
             
             <div class="list-item">
                 <div class="badge week-badge">SEMANA 01</div>
@@ -279,16 +284,21 @@
         </div>
 
         <div class="ios-card">
-            <div class="card-title">🔄 Funcionamento (Simples)</div>
+            <div class="card-title">🔄 Funcionamento (Sua Parte)</div>
             
-            <div style="margin-bottom: 15px;">
+            <div style="margin-bottom: 20px;">
                 <strong>1. Você Grava (Sáb/Dom):</strong>
-                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666;">Takes rápidos no celular do refrão das músicas e da galera brindando.</p>
+                <ul class="bullet-list" style="margin-top: 5px;">
+                    <li>🎤 <strong>O Som:</strong> Refrão das 5 músicas que o público mais canta junto (15s-30s max).</li>
+                    <li>🍻 <strong>A Vibe:</strong> 5 takes curtos de mesas servidas e brindes.</li>
+                </ul>
             </div>
             
             <div>
-                <strong>2. Nós Editamos:</strong>
-                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666;">Você joga no Grupo de WhatsApp e a gente entrega pronto na segunda-feira.</p>
+                <strong>2. Envio Prático:</strong>
+                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666;">
+                    Criaremos um <strong>Grupo de WhatsApp</strong> exclusivo. Gravou? Jogou lá. Nossa equipe coleta tudo na segunda-feira.
+                </p>
             </div>
         </div>
     </div>
@@ -298,7 +308,7 @@
         
         <div class="list-item">
             <div class="badge">13/12</div>
-            <div><strong>Dia do Forró:</strong> Playlist e convite.</div>
+            <div><strong>Dia do Forró:</strong> Playlist especial e convite.</div>
         </div>
         <div class="list-item">
             <div class="badge">21/12</div>
@@ -306,19 +316,23 @@
         </div>
         <div class="list-item">
             <div class="badge">23/12</div>
-            <div><strong>Dia do Vizinho:</strong> Movimento de Bairro.</div>
+            <div><strong>Dia do Vizinho:</strong> Movimento de Bairro (Resenha).</div>
         </div>
         <div class="list-item">
             <div class="badge">24/12</div>
-            <div><strong>Véspera (Survival Kit):</strong> Gelo e Cerveja até 20h.</div>
+            <div><strong>Véspera (Survival Kit):</strong> Gelo, Carvão e Cerveja até 20h.</div>
         </div>
         <div class="list-item">
             <div class="badge">25/12</div>
-            <div><strong>Natal (Refúgio):</strong> A fuga da família é aqui.</div>
+            <div><strong>Natal (Refúgio):</strong> Abertura fim de tarde. "A fuga da família".</div>
+        </div>
+        <div class="list-item">
+            <div class="badge">28/12</div>
+            <div><strong>Dia do Salva-Vidas:</strong> "O mar tá perigoso, vem se salvar da sede".</div>
         </div>
         <div class="list-item">
             <div class="badge">31/12</div>
-            <div><strong>Réveillon:</strong> Venda de Kits (Ticket Alto).</div>
+            <div><strong>Réveillon:</strong> Venda de Kits (Ticket Médio Alto).</div>
         </div>
     </div>
 
